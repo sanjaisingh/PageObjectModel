@@ -3,16 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="com.selenium.facebook.testcases.ProfileTest"/>
+      <class name="com.selenium.facebook.testcases.ChangePassword"/>
     </classes>
   </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
-      <class name="com.selenium.facebook.testcases.ProfileTest">
+      <class name="com.selenium.facebook.testcases.ChangePassword">
         <methods>
-          <include name="testProfile"/>
+          <include name="changePasswordTest" invocation-numbers="0"/>
+          <include name="flushReport"/>
         </methods>
-      </class> <!-- com.selenium.facebook.testcases.ProfileTest -->
+      </class> <!-- com.selenium.facebook.testcases.ChangePassword -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

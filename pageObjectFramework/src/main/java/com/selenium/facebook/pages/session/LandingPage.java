@@ -22,6 +22,7 @@ public class LandingPage extends BaseClass{
 	public LandingPage quitApplication() throws Exception
 	{
 		//profileLink.click();
+		
 		driver.quit();
 		LandingPage landingPage = new LandingPage(driver, test);		
 		PageFactory.initElements(driver, landingPage);

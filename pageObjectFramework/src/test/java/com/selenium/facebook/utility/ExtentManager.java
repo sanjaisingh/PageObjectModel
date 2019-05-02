@@ -16,13 +16,12 @@ public class ExtentManager {
 		if (extent == null) {
 			Date currentDataTime = new Date();
 			String fileName = currentDataTime.toString().replace(":", "_").replace(" ", "_")+".html";
-			extent = new ExtentReports(System.getProperty("user.dir") + "//reports//"+fileName, true, DisplayOrder.NEWEST_FIRST);
+			extent = new ExtentReports(System.getProperty("user.dir") + "//reports//"+fileName, true, DisplayOrder.OLDEST_FIRST);
 
 			
 			extent.loadConfig(new File(System.getProperty("user.dir")+"//ReportsConfig.xml"));
 			// optional
-			extent.addSystemInfo("Selenium Version", "2.53.0").addSystemInfo(
-					"Environment", "QA");
+			extent.addSystemInfo("Selenium Version", "2.53.0").addSystemInfo("Environment", "QA");
 		}
 		return extent;
 	}

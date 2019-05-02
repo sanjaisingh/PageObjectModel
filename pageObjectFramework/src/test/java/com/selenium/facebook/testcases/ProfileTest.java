@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.selenium.facebook.pages.LaunchPage;
 import com.selenium.facebook.pages.LoginPage;
 import com.selenium.facebook.pages.session.LandingPage;
+import com.selenium.facebook.utility.AppConstants;
 import com.selenium.facebook.utility.BrowserFactory;
 
 public class ProfileTest extends BrowserFactory{
@@ -18,7 +19,7 @@ public class ProfileTest extends BrowserFactory{
 		LaunchPage launchPage = new LaunchPage(driver, test);
 		PageFactory.initElements(driver, launchPage);
 		LoginPage loginPage = launchPage.gotoLoginPage();
-		Object page = loginPage.doLogin();
+		Object page = loginPage.doLogin(AppConstants.APP_USERNAME, AppConstants.APP_PASSWORD);
 		if(page instanceof LoginPage)
 			Assert.fail("Login Failed");
 		else
@@ -26,6 +27,7 @@ public class ProfileTest extends BrowserFactory{
 		
 		LandingPage landingPage = (LandingPage)page;		
 		landingPage.quitApplication();
+		landingPage.takeScreenshot();
 	}
 	
 	

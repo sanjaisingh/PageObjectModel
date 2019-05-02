@@ -1,5 +1,6 @@
 package com.selenium.facebook.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,14 +28,16 @@ public class LoginPage extends BaseClass{
 		super(_driver, test);
 	}
 	
-	public Object doLogin()
+	
+	public Object doLogin(String username, String password)
 	{
 		boolean loginSuccess = true;
 		test.log(LogStatus.INFO, "Entering Login Credentials");		
-		inputText(txtUsername, AppConstants.APP_USERNAME);
-		inputText(txtPassord, AppConstants.APP_PASSWORD);
-		test.log(LogStatus.INFO, "Clicking on Login button");
-		clickElement(btnLogin);
+		inputText(txtUsername, username);
+		inputText(txtPassord, password);
+		txtPassord.sendKeys(Keys.ENTER);
+		/*test.log(LogStatus.INFO, "Clicking on Login button");
+		clickElement(btnLogin);*/
 		test.log(LogStatus.PASS, "Login successfully");
 		
 		if(loginSuccess)
@@ -49,5 +52,5 @@ public class LoginPage extends BaseClass{
 			PageFactory.initElements(driver, loginPage);
 			return loginPage;
 		}
-	}
+	}	
 }
